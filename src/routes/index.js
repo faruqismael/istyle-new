@@ -9,6 +9,7 @@ const apiRoutes = require("./api");
 router.use("/", apiRoutes);
 
 router.use((req, res) => {
+  res.render("404");
   res.send("<h1>404 - Wrong Route!</h1>");
 });
 
