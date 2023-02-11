@@ -67,6 +67,15 @@ app.use(async function (req, res, next) {
   const categories = await Category.findAll();
   const products = await Product.findAll({ order: [["createdAt", "DESC"]] });
 
+  // products ...
+  let limit = req.query.limit || 6;
+  let page = req.query.page || 1;
+
+  let end = (page - 1) * limit;
+
+  let totalPage = Math.floor((await Product.count()) / limit);
+  let currentPage = page * 1;
+
   const globalInfo = {};
   const settings = {};
 
@@ -98,6 +107,8 @@ app.use(async function (req, res, next) {
 
   res.locals.categories = categories;
   res.locals.products = products;
+  res.locals.currentPage = currentPage;
+  res.locals.totalPage = totalPage;
 
   res.locals.path2URL = path2URL;
 
