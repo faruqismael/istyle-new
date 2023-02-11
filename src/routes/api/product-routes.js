@@ -7,8 +7,15 @@ const { Product, Category } = require("../../models");
 // get all products
 // find all products
 // be sure to include its associated Category and Tag data
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   let gender = req.query.gender;
+  let limit = req.query.limit || 6;
+  let page = req.query.page || 1;
+
+  let end = (page - 1) * limit;
+
+  let totalPage = Math.floor((await Product.count()) / limit);
+  let currentPage = page * 1;
 
   if (gender == "both") gender = ["both", "male", "female", null];
   else gender = gender ? [gender] : ["both", "male", "female", null];
@@ -20,6 +27,9 @@ router.get("/", (req, res) => {
         [Op.or]: gender,
       },
     },
+    limit,
+    offset: end,
+
     include: [
       {
         model: Category,
@@ -28,7 +38,7 @@ router.get("/", (req, res) => {
     ],
   })
     .then((products) => {
-      return res.render("products", { products });
+      return res.render("products", { products, totalPage, currentPage });
     })
     .catch((err) => {
       console.log(err);

@@ -115,10 +115,20 @@
               </div> -->
             </div>
             <div class="product__pagination">
-              <a href="#">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+              <% if (!(currentPage > totalPage)) { %> <% if (currentPage > 1) {
+              %>
+              <a href="/products?page=<%= currentPage-1 %>"
+                ><i class="fa fa-long-arrow-left"></i
+              ></a>
+              <% } %>
+              <!--  -->
+              <% for( let c = 1; c <= totalPage; c++ ) { %>
+              <a href="/products?page=<%= c %>"><%= c %> %> </a>
+              <% } %> <% if (currentPage < totalPage) { %>
+              <a href="/products?page=<%= currentPage + 1 %>"
+                ><i class="fa fa-long-arrow-right"></i
+              ></a>
+              <% } %> <% } %>
             </div>
           </div>
         </div>
