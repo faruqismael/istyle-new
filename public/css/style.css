@@ -3495,3 +3495,11 @@ ol {
 .insta-link:hover {
   color: rgb(210, 200, 200);
 }
+
+.insta-link-blue {
+  color: rgb(35, 19, 74);
+}
+
+.insta-link-blue:hover {
+  color: rgb(44, 42, 53);
+}

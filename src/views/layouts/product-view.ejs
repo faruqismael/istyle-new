@@ -4,7 +4,7 @@
       data-target="#product<%= product.id %>Modal"
       class="col-lg-3 col-md-4 col-sm-6 bg-gray mix category_<%= product.category_id %> "
     >
-      <div class="product__item">
+      <div class="product__item ">
         <div class="product__item__pic set-bg">
           <img
             src="/<%= product.image.split(',')[0] %>"
@@ -34,14 +34,14 @@
 
     <!-- Modal -->
     <div
-      class="modal fade"
+      class="modal fade "
       id="product<%= product.id %>Modal"
       tabindex="-1"
       role="dialog"
       aria-labelledby="product<%= product.id %>ModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5
@@ -129,9 +129,32 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">
-              contact us
-            </button>
+         
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
+
+            <div class="modal fade bd-example-modal-sm bg-secondary" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Contact Us</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Phone: <%= globalInfo.phoneNumber %> </p>
+                    <p>Email: <%= globalInfo.companyEmail %></p>
+                    <p>Instagram: <a href="https://instagram.com/istyleaddis" class="insta-link-blue" target="_blank" >@istyleaddis</a></p>
+                    <p>Address: <%= globalInfo.address %></p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
