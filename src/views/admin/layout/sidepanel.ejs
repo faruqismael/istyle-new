@@ -8,10 +8,10 @@
       <a class="app-logo" href="/"
         ><img
           class=""
-	  height='50'
+          height="50"
           src="/<%= settings.logo %>"
           alt="logo"
-        /><span class="logo-text">ISTYLE</span></a
+        /><span class="logo-text"><%= "ISTYLE" %></span></a
       >
     </div>
     <!--//app-branding-->
@@ -20,7 +20,7 @@
       <ul class="app-menu list-unstyled accordion" id="menu-accordion">
         <li class="nav-item">
           <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-          <a class="nav-link active" href="/admin">
+          <a class="nav-link <%= activeUrl == "/admin" ? 'active': ""   %> " href="/admin">
             <span class="nav-icon">
               <svg
                 width="1em"
@@ -48,7 +48,7 @@
         <li class="nav-item has-submenu">
           <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
           <a
-            class="nav-link submenu-toggle"
+            class="nav-link submenu-toggle <%= activeUrl == "/admin/products" ? 'active': ""   %>"
             href="#"
             data-bs-toggle="collapse"
             data-bs-target="#product-nav"
@@ -83,7 +83,7 @@
         <li class="nav-item has-submenu">
           <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
           <a
-            class="nav-link submenu-toggle"
+            class="nav-link submenu-toggle <%= activeUrl == "/admin/categories" ? 'active': ""   %> "
             href="#"
             data-bs-toggle="collapse"
             data-bs-target="#category-nav"
@@ -119,7 +119,7 @@
         <li class="nav-item has-submenu">
           <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
           <a
-            class="nav-link submenu-toggle"
+            class="nav-link submenu-toggle <%= activeUrl == "/create/admin" ? 'active': ""   %> "
             href="#"
             data-bs-toggle="collapse"
             data-bs-target="#admin-nav"
@@ -175,8 +175,7 @@
           </div>
         </li>
         <!--//nav-item-->
-        <li class="nav-item has-submenu">
-          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+        <!-- <li class="nav-item has-submenu">
           <a
             class="nav-link submenu-toggle"
             href="#"
@@ -186,7 +185,6 @@
             aria-controls="pages-nav"
           >
             <span class="nav-icon">
-              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
               <svg
                 width="1em"
                 height="1em"
@@ -219,9 +217,9 @@
                   d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
                 />
               </svg> </span
-            ><!--//submenu-arrow--> </a
-          ><!--//nav-link-->
-          <div
+            > </a
+          >
+           <div
             id="pages-nav"
             class="collapse submenu pages-nav"
             data-bs-parent="#menu-accordion"
@@ -240,10 +238,9 @@
               </li>
             </ul>
           </div>
-        </li>
+        </li> -->
         <!--//nav-item-->
-        <li class="nav-item has-submenu">
-          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+        <!-- <li class="nav-item has-submenu">
           <a
             class="nav-link submenu-toggle"
             href="#"
@@ -253,7 +250,6 @@
             aria-controls="external-nav"
           >
             <span class="nav-icon">
-              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
               <svg
                 width="1em"
                 height="1em"
@@ -283,8 +279,8 @@
                   d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
                 />
               </svg> </span
-            ><!--//submenu-arrow--> </a
-          ><!--//nav-link-->
+          >
+          
           <div
             id="external-nav"
             class="collapse submenu external-nav"
@@ -307,56 +303,9 @@
               </li>
             </ul>
           </div>
-        </li>
+        </li> -->
         <!--//nav-item-->
 
-        <li class="nav-item">
-          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-          <a class="nav-link" href="charts.html">
-            <span class="nav-icon">
-              <svg
-                width="1em"
-                height="1em"
-                viewBox="0 0 16 16"
-                class="bi bi-bar-chart-line"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"
-                />
-              </svg>
-            </span>
-            <span class="nav-link-text">Charts</span> </a
-          ><!--//nav-link-->
-        </li>
-        <!--//nav-item-->
-
-        <li class="nav-item">
-          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-          <a class="nav-link" href="help.html">
-            <span class="nav-icon">
-              <svg
-                width="1em"
-                height="1em"
-                viewBox="0 0 16 16"
-                class="bi bi-question-circle"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                />
-                <path
-                  d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
-                />
-              </svg>
-            </span>
-            <span class="nav-link-text">Help</span> </a
-          ><!--//nav-link-->
-        </li>
         <!--//nav-item-->
       </ul>
       <!--//app-menu-->
@@ -367,7 +316,7 @@
         <ul class="app-menu footer-menu list-unstyled">
           <li class="nav-item">
             <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-            <a class="nav-link" href="/admin/settings">
+            <a class="nav-link <%= activeUrl == "/admin/settings" ? 'active': ""   %> " href="/admin/settings">
               <span class="nav-icon">
                 <svg
                   width="1em"
@@ -394,10 +343,7 @@
           <!--//nav-item-->
           <li class="nav-item">
             <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-            <a
-              class="nav-link"
-              href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/"
-            >
+            <a class="nav-link <%= activeUrl == "/admin/privacy-policy" ? 'active': ""   %> " href="/admin/privacy-policy">
               <span class="nav-icon">
                 <svg
                   width="1em"
@@ -417,7 +363,7 @@
                   />
                 </svg>
               </span>
-              <span class="nav-link-text">License</span> </a
+              <span class="nav-link-text">Privacy policy</span> </a
             ><!--//nav-link-->
           </li>
           <!--//nav-item-->

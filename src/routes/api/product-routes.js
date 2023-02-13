@@ -9,7 +9,7 @@ const { Product, Category } = require("../../models");
 // be sure to include its associated Category and Tag data
 router.get("/", async (req, res) => {
   let gender = req.query.gender;
-  let limit = req.query.limit || 6;
+  let limit = req.query.limit * 1 || 2;
   let page = req.query.page || 1;
 
   let end = (page - 1) * limit;

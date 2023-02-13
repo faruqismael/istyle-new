@@ -161,6 +161,36 @@ router.post("/new-setting-name", async function (req, res, next) {
   }
 });
 
+router.post("/privacy", async function (req, res, next) {
+  try {
+    const privacy = await Setting.findOne({ setting_name: "privacy" });
+    if (!privacy) {
+      const setting = await Setting.create({
+        setting_name: "privacy",
+        setting_value: req.body.privacy,
+      });
+    } else {
+      const setting = await Setting.update(
+        {
+          setting_value: req.body.privacy,
+        },
+        {
+          where: {
+            setting_name: "privacy",
+          },
+        }
+      );
+    }
+
+    req.session.success = "Privacy added successfully";
+
+    return res.redirect("/admin/privacy-policy");
+  } catch (error) {
+    req.session.error = error.message;
+    res.redirect("/admin/privacy-policy");
+  }
+});
+
 // edit setting
 router.post(
   "/setting/:id",

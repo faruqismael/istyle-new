@@ -65,14 +65,17 @@ app.use(async function (req, res, next) {
   const infos = await infoController.getInfo();
   const setting = await settingController.getSetting();
   const categories = await Category.findAll();
-  const products = await Product.findAll({ order: [["createdAt", "DESC"]] });
 
   // products ...
-  let limit = req.query.limit || 6;
-  let page = req.query.page || 1;
+  let limit = req.query.limit * 1 || 8;
+  let page = req.query.page * 1 || 1;
 
   let end = (page - 1) * limit;
 
+  const products = await Product.findAll({
+    order: [["createdAt", "DESC"]],
+    limit,
+  });
   let totalPage = Math.floor((await Product.count()) / limit);
   let currentPage = page * 1;
 
@@ -94,9 +97,10 @@ app.use(async function (req, res, next) {
     route: req.url,
   };
 
-  console.log("=================", settings.logo == null);
+  console.log("=================", settings.logo);
 
   res.locals.title = "ISTYLE";
+  res.locals.activeUrl = req.url;
 
   res.locals.settings = settings;
 

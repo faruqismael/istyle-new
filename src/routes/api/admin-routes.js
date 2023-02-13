@@ -26,14 +26,27 @@ router.delete("/category/:id", async function (req, res, next) {
   res.redirect("/admin/categories");
 });
 
-router.get("/set", function (req,res, next) {
-  res.send('hello')
+router.get("/set", function (req, res, next) {
+  res.send("hello");
 });
 
 router.get("/settings", async function (req, res, next) {
   const settings = await Setting.findAll();
 
-  res.render("admin/settings", { title: "Settings", settings });
+  res.render("admin/settings", { title: "Settings", allSettings: settings });
+});
+
+router.get("/privacy-policy", async function (req, res, next) {
+  const privacy = await Setting.findOne({
+    where: {
+      setting_name: "privacy",
+    },
+  });
+
+  res.render("admin/privacy-policy", {
+    title: "Privacy policy",
+    privacy,
+  });
 });
 
 router.delete("/setting/:id", async function (req, res, next) {
